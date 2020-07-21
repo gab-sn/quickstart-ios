@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Use Firebase library to configure APIs
     FirebaseApp.configure()
     // [END firebase_configure]
+    
+    
+    //
     return true
   }
 
