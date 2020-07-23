@@ -16,22 +16,69 @@
 
 import UIKit
 import Firebase
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  var window: UIWindow?
-
-  func application(_ application: UIApplication,
-      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // [START firebase_configure]
-    // Use Firebase library to configure APIs
-    FirebaseApp.configure()
-    // [END firebase_configure]
+    
+    var window: UIWindow?
+    
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
+        initializePerformanceMetrics()
+        initializeGoogleAnalytics()
+    
+        return true
+    }
     
     
-    //
-    return true
-  }
-
+    //Firebase init
+    
+    //defualt app
+    func initializeGoogleAnalytics() {
+        let filePath = Bundle.main.path(forResource: "GoogleService-Info-2", ofType: "plist")
+        guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
+            else { assert(false, "Couldn't load config file") }
+        FirebaseApp.configure(options: fileopts)
+        
+    }
+    
+    //secondary app
+    func initializePerformanceMetrics() {
+        let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
+        guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
+          else { assert(false, "Couldn't load config file") }
+        FirebaseApp.configure(name: "performance", options: fileopts)
+    }
+    
+   
+    //changes ive made
+    //old bundle id: com.google.firebase.quickstart.PerformanceExample
+    
+    
+    //console log told to change analytics to this appId:"1:803146229088:ios:030e17290044f4f9672a05"
+    //From this appId: "1:803146229088:ios:2cb98a4cf53e3c08672a05" seemed to fix the warnning
+    
+//    func initializePerformanceMetrics() {
+//        let fbAppId = "1:803146229088:ios:030e17290044f4f9672a05"
+//        let firebaseSenderID = "803146229088"
+//        let options = FirebaseOptions(googleAppID: fbAppId, gcmSenderID: firebaseSenderID)
+//        options.projectID = "performance-demo-app"
+//        options.bundleID = "com.servicenow.demo"
+//        options.apiKey = "AIzaSyAbcBgQMoAGnnHF0DkkITRILVF5W9mrEc4"
+//        FirebaseApp.configure(name: "performance", options: options)
+//    }
+    
+//    func initializeGoogleAnalytics() {
+//        let appId = "1:803146229088:ios:2cb98a4cf53e3c08672a05"
+//        let gcmSenderId = "803146229088"
+//        let options = FirebaseOptions(googleAppID: appId, gcmSenderID: gcmSenderId)
+//        options.projectID = "performance-demo-app"
+//        options.bundleID = "com.servicenow.agentdemo"
+//        options.apiKey = "AIzaSyAbcBgQMoAGnnHF0DkkITRILVF5W9mrEc4"
+//        options.clientID = "803146229088-cs8vv4924ts5t10gr49p0t4t3d4dkh1t.apps.googleusercontent.com"
+//        FirebaseApp.configure(options: options)
+//        //removed dbId / storageBucketID
+//    }
 }

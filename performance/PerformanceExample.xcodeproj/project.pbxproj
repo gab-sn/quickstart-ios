@@ -22,6 +22,8 @@
 		5F99610C1AE0CF4F0034F503 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9961071AE0CF4F0034F503 /* LaunchScreen.xib */; };
 		5F99610D1AE0CF4F0034F503 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9961071AE0CF4F0034F503 /* LaunchScreen.xib */; };
 		5FDE055D1B0DAA090037B82F /* AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE055C1B0DAA090037B82F /* AppTests.m */; };
+		92F425CF24C97DDC0023D207 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F425CC24C97DDB0023D207 /* GoogleService-Info-2.plist */; };
+		92F425D124C97DDC0023D207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F425CD24C97DDC0023D207 /* GoogleService-Info.plist */; };
 		B98F276F624F16C31DA9E8BC /* Pods_PerformanceExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2EEB8A3AA9D42CE161F299 /* Pods_PerformanceExample.framework */; };
 		BE41B24E83FBF19D538CB568 /* Pods_PerformanceExampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6564267D0CE4251802373BF3 /* Pods_PerformanceExampleSwift.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,8 @@
 		6564267D0CE4251802373BF3 /* Pods_PerformanceExampleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerformanceExampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E2EEB8A3AA9D42CE161F299 /* Pods_PerformanceExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerformanceExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4121136A5E4026F96B894 /* Pods-PerformanceExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerformanceExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-PerformanceExampleTests/Pods-PerformanceExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		92F425CC24C97DDB0023D207 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		92F425CD24C97DDC0023D207 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EAF4E5AD12CE6E2BBD65B47 /* Pods_PerformanceExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerformanceExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AD61C99DA46B34A348702B /* Pods-PerformanceExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerformanceExampleTests.release.xcconfig"; path = "Target Support Files/Pods-PerformanceExampleTests/Pods-PerformanceExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD1A23B9CD34AC0E23D05BB0 /* Pods-PerformanceExampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerformanceExampleSwift.debug.xcconfig"; path = "Target Support Files/Pods-PerformanceExampleSwift/Pods-PerformanceExampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 		5F5A534E1ADE670C00F81DF0 /* PerformanceExample */ = {
 			isa = PBXGroup;
 			children = (
+				92F425D324C97EA50023D207 /* analytics */,
+				92F425D224C97E890023D207 /* performance */,
 				5F5A53531ADE670C00F81DF0 /* AppDelegate.h */,
 				5F5A53541ADE670C00F81DF0 /* AppDelegate.m */,
 				5F5A53561ADE670C00F81DF0 /* ViewController.h */,
@@ -230,6 +236,22 @@
 			path = PerformanceExampleTests;
 			sourceTree = "<group>";
 		};
+		92F425D224C97E890023D207 /* performance */ = {
+			isa = PBXGroup;
+			children = (
+				92F425CD24C97DDC0023D207 /* GoogleService-Info.plist */,
+			);
+			name = performance;
+			sourceTree = "<group>";
+		};
+		92F425D324C97EA50023D207 /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+				92F425CC24C97DDB0023D207 /* GoogleService-Info-2.plist */,
+			);
+			name = analytics;
+			sourceTree = "<group>";
+		};
 		DC58A12B974F5B118ACA92C8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,7 +262,6 @@
 				84E4121136A5E4026F96B894 /* Pods-PerformanceExampleTests.debug.xcconfig */,
 				B7AD61C99DA46B34A348702B /* Pods-PerformanceExampleTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -433,6 +454,8 @@
 			files = (
 				5F99610D1AE0CF4F0034F503 /* LaunchScreen.xib in Resources */,
 				5F5A539C1ADE69AA00F81DF0 /* Main.storyboard in Resources */,
+				92F425D124C97DDC0023D207 /* GoogleService-Info.plist in Resources */,
+				92F425CF24C97DDC0023D207 /* GoogleService-Info-2.plist in Resources */,
 				5F99610B1AE0CF4F0034F503 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -920,13 +943,15 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/PerformanceExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.firebase.quickstart.PerformanceExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.servicenow.agentdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -939,14 +964,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/PerformanceExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.firebase.quickstart.PerformanceExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.servicenow.agentdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
