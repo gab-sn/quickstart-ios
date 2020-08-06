@@ -26,7 +26,8 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
+    
     let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
     let documentsDirectory = paths[0]
 
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
     let fileName = "\(documentsDirectory)/perfsamplelog.txt"
 
     // Start tracing
-    let trace = Performance.startTrace(name: "request_trace")
+    let trace = Performance.startTrace(name: "V2 - request_trace")
 
     let contents: String
     do {
@@ -87,22 +88,25 @@ class ViewController: UIViewController {
     }
 
     task.resume()
-    trace?.incrementMetric("request_sent", by: 1)
+    trace?.incrementMetric("V2 - request_sent", by: 1)
     
     if #available(iOS 10, *){
-      let asset =
-        AVURLAsset(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Two_red_dice_01.svg/220px-Two_red_dice_01.svg.png")!)
-      let downloadSession =
-        AVAssetDownloadURLSession(configuration: URLSessionConfiguration.background(withIdentifier: "avasset"),
-                                  assetDownloadDelegate: nil,
-                                  delegateQueue: OperationQueue.main)
+
+        let asset =
+            AVURLAsset(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Two_red_dice_01.svg/220px-Two_red_dice_01.svg.png")!)
+        let downloadSession =
+            AVAssetDownloadURLSession(configuration: URLSessionConfiguration.background(withIdentifier: "avasset"),
+                                      assetDownloadDelegate: nil,
+                                      delegateQueue: OperationQueue.main)
         
-      let task = downloadSession.makeAssetDownloadTask(asset: asset,
-                                                       assetTitle:"something",
-                                                       assetArtworkData:nil,
-                                                       options:nil)!
-      task.resume()
-      trace?.incrementMetric("av_request_sent", by: 1)
+        let task = downloadSession.makeAssetDownloadTask(asset: asset,
+                                                         assetTitle:"something",
+                                                         assetArtworkData:nil,
+                                                         options:nil)!
+        let av_request_sent_trace = Performance.startTrace(name: "V2 - av_request_sent")
+        task.resume()
+        av_request_sent_trace?.stop()
+        trace?.incrementMetric("V2 - av_request_sent", by: 1)
     }
   }
 }
